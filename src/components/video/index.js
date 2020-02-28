@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 
-function Videos() {
+function Video() {
   return (
-    <StyledDivContainer>
+    <StyledDivContainer type='none'>
       <VideoCover />
       <VideoBar type='none'>
         <StyledLi>
@@ -24,6 +24,10 @@ function Videos() {
   )
 }
 
+const StyledDivContainer = styled.ul`
+  margin: 0;
+  padding: 10px 0 0 0;
+`
 const StyledLi = styled.li`
   padding: 5px 10px;
   display: flex;
@@ -31,16 +35,6 @@ const StyledLi = styled.li`
 
 const StyledMoreIcon = styled(StyledLi)`
   margin-left: auto;
-`
-
-const StyledDivContainer = styled.div`
-  background-color: #282828;
-  color: white;
-  padding: 50px 0 10px 0;
-  display: flex;
-  flex-direction: column;
-  margin-left: auto;
-  z-index: -1;
 `
 
 const Account = styled.span`
@@ -65,4 +59,4 @@ const VideoCover = styled.div`
   background-color: lightgray;
 `
 
-export default Videos
+export default Video
