@@ -29,6 +29,7 @@ function TopToolbar() {
 }
 
 const StyledToolbar = styled.ul`
+  box-shadow: 2px 2px 3px black;
   position: absolute;
   left: 0;
   top: 0;
