@@ -10,27 +10,27 @@ import VideoLibraryIcon from '@material-ui/icons/VideoLibrary'
 function BottomDashboard() {
   return (
     <Toolbar>
-      <BtmToolbarStyledLi>
+      <BtmToolbarStyledLi active={true}>
         <HomeIcon />
         <span>Acceuil</span>
       </BtmToolbarStyledLi>
 
-      <BtmToolbarStyledLi>
+      <BtmToolbarStyledLi active={false}>
         <WhatshotIcon />
         <span>Tendances</span>
       </BtmToolbarStyledLi>
 
-      <BtmToolbarStyledLi>
+      <BtmToolbarStyledLi active={false}>
         <SubscriptionsIcon />
         <span>Abonnements</span>
       </BtmToolbarStyledLi>
 
-      <BtmToolbarStyledLi>
+      <BtmToolbarStyledLi active={false}>
         <EmailIcon />
         <span>Boite réception</span>
       </BtmToolbarStyledLi>
 
-      <BtmToolbarStyledLi>
+      <BtmToolbarStyledLi active={false}>
         <VideoLibraryIcon />
         <span>Bibliothèque</span>
       </BtmToolbarStyledLi>
@@ -43,11 +43,17 @@ const StyledLi = styled.li`
   text-align: center;
 `
 const BtmToolbarStyledLi = styled(StyledLi)`
+  color: ${props => (props.active ? 'white' : 'gray')};
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 8px;
   width: 20%;
+  cursor: pointer;
+
+  :hover {
+    color: white;
+  }
 `
 
 export default BottomDashboard
