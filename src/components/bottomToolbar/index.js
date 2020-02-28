@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Toolbar from '../toolbar/index'
 import HomeIcon from '@material-ui/icons/Home'
 import WhatshotIcon from '@material-ui/icons/Whatshot'
-import PermMediaIcon from '@material-ui/icons/PermMedia'
+import SubscriptionsIcon from '@material-ui/icons/Subscriptions'
 import EmailIcon from '@material-ui/icons/Email'
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary'
 
@@ -21,7 +21,7 @@ function BottomDashboard() {
       </BtmToolbarStyledLi>
 
       <BtmToolbarStyledLi>
-        <PermMediaIcon />
+        <SubscriptionsIcon />
         <span>Abonnements</span>
       </BtmToolbarStyledLi>
 
