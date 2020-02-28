@@ -15,6 +15,7 @@ const StyledToolbar = styled.ul`
   left: 0;
   bottom: 0;
   width: 100%;
+  border-top: 1px solid #4f4e4e;
   background-color: #282828;
   color: white;
   display: flex;
