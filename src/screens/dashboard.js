@@ -3,11 +3,11 @@ import BottomToolbar from '../components/bottomToolbar/index'
 import TopToolbar from '../components/topToolbar/index'
 import Videos from '../components/videos/index'
 
-function Dashboard() {
+function Dashboard({ history }) {
   return (
     <div className='dashboard'>
       <TopToolbar />
-      <Videos />
+      <Videos history={history} />
       <BottomToolbar />
     </div>
   )

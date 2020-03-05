@@ -2,43 +2,23 @@ import React from 'react'
 import styled from 'styled-components'
 import Video from '../video/index'
 
-function Videos() {
-  const videos = [
-    {
-      channel: 'Evanscence',
-      title: 'Lithium',
-      views: '900 M',
-      date: '6 ans'
-    },
-    {
-      channel: 'Evanscence',
-      title: 'Going under',
-      views: '600 M',
-      date: '6 ans'
-    },
-    {
-      channel: 'Evanscence',
-      title: 'The change',
-      views: '400 M',
-      date: '6 ans'
-    },
-    {
-      channel: 'Linkin park',
-      title: 'Crawling',
-      views: '100 M',
-      date: '6 ans'
-    }
-  ]
+function Videos({ history }) {
+  const videos = JSON.parse(localStorage.getItem('youtubeSession'))
+
+  const goToVideo = videoId => {
+    history.push('/video')
+  }
 
   return (
     <StyledDivContainer>
-      {videos.map(({ channel, title, views, date }, i) => (
+      {videos.map(({ id, channel, title, views, date }, i) => (
         <Video
           key={i}
           channel={channel}
           title={title}
           views={views}
           date={date}
+          onGoToVideo={() => goToVideo(id)}
         />
       ))}
     </StyledDivContainer>

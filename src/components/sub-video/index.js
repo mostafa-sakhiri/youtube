@@ -3,31 +3,26 @@ import styled from 'styled-components'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import PropTypes from 'prop-types'
 
-function Video({ channel, title, views, date, onGoToVideo }) {
+function SubVideo({ channel, title, views, onGoToVideo }) {
   return (
     <StyledDivContainer type='none'>
       <VideoCover onClick={onGoToVideo} />
-      <VideoBar type='none'>
-        <StyledLi>
-          <Account />
-        </StyledLi>
-
+      <VideoContent type='none'>
         <VideoDescription>
-          <span>{title}</span>
-          <span>
-            {channel} - {views} vues - Il y'a {date}
-          </span>
+          <StyledTitle>{title}</StyledTitle>
+          <StyledChannel>{channel}</StyledChannel>
+          <StyledViewsStatus>{views} de vues</StyledViewsStatus>
         </VideoDescription>
 
         <StyledMoreIcon>
-          <MoreVertIcon />
+          <MoreVertIcon style={{ fontSize: '18px', color: 'gray' }} />
         </StyledMoreIcon>
-      </VideoBar>
+      </VideoContent>
     </StyledDivContainer>
   )
 }
 
-Video.propTypes = {
+SubVideo.propTypes = {
   channel: PropTypes.string,
   title: PropTypes.string,
   views: PropTypes.string,
@@ -37,7 +32,9 @@ Video.propTypes = {
 
 const StyledDivContainer = styled.ul`
   margin: 0;
-  padding: 10px 0 0 0;
+  padding: 10px 0 0 20px;
+  display: flex;
+  flex-direction: row;
 `
 const StyledLi = styled.li`
   padding: 5px 10px;
@@ -49,30 +46,35 @@ const VideoDescription = styled(StyledLi)`
   flex-direction: column;
 `
 
+const StyledTitle = styled.span`
+  font-size: 16px;
+`
+const StyledChannel = styled.span`
+  font-size: 12px;
+  color: gray;
+`
+
+const StyledViewsStatus = styled.span`
+  color: gray;
+`
+
 const StyledMoreIcon = styled(StyledLi)`
+  font-size: 12px;
   margin-left: auto;
 `
 
-const Account = styled.span`
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background-color: white;
-`
-
-const VideoBar = styled.ul`
+const VideoContent = styled.ul`
   width: 100%;
   display: flex;
   flex-direction: columns;
-  align-items: center;
-  padding: 10px 0 0 0;
+  padding: 0;
   margin: 0;
 `
 
 const VideoCover = styled.div`
   width: 100%;
-  height: 200px;
+  height: 100px;
   background-color: lightgray;
 `
 
-export default Video
+export default SubVideo

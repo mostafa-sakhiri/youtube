@@ -66,3 +66,62 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### TODO
+
+Pages :
+-- Dashboard
+-- video
+
+Components :
+-- Top Toolbar
+	-- Logo
+	-- quick actions*
+	-- Search input
+-- Bottom Toolbar
+	-- quick-actions*
+-- dashboard-body (Videos on dashboard)
+
+Fonctionnalités :
+-- When clicking on a video -> go to full screen video
+-- Like/Dislike/Comment video
+
+
+Icons : 
+- material
+-- Home
+-- trends : trending_up
+-- subscriptions : perm_media
+-- email
+-- video_library
+
+  const videos = [
+    {
+      id: 1,
+      channel: 'Evanscence',
+      title: 'Lithium',
+      views: '900 M',
+      date: '6 ans'
+    },
+    {
+      id: 2,
+      channel: 'Evanscence',
+      title: 'Going under',
+      views: '600 M',
+      date: '6 ans'
+    },
+    {
+      id: 3,
+      channel: 'Evanscence',
+      title: 'The change',
+      views: '400 M',
+      date: '6 ans'
+    },
+    {
+      id: 4,
+      channel: 'Linkin park',
+      title: 'Crawling',
+      views: '100 M',
+      date: '6 ans'
+    }
+  ]
