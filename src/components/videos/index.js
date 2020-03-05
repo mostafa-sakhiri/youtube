@@ -6,7 +6,7 @@ function Videos({ history }) {
   const videos = JSON.parse(localStorage.getItem('youtubeSession'))
 
   const goToVideo = videoId => {
-    history.push('/video')
+    history.push(`/video/${videoId}`)
   }
 
   return (
