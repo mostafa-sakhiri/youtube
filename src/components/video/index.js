@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
+import PropTypes from 'prop-types'
 
-function Video() {
+function Video({ channel, title, views, date }) {
   return (
     <StyledDivContainer type='none'>
       <VideoCover />
@@ -11,10 +12,12 @@ function Video() {
           <Account />
         </StyledLi>
 
-        <StyledLi>
-          <span>Title</span>
-          <span>Subtitle - views - date</span>
-        </StyledLi>
+        <VideoDescription>
+          <span>{title}</span>
+          <span>
+            {channel} - {views} vues - Il y'a {date}
+          </span>
+        </VideoDescription>
 
         <StyledMoreIcon>
           <MoreVertIcon />
@@ -24,6 +27,13 @@ function Video() {
   )
 }
 
+Video.propTypes = {
+  channel: PropTypes.string,
+  title: PropTypes.string,
+  views: PropTypes.string,
+  date: PropTypes.string
+}
+
 const StyledDivContainer = styled.ul`
   margin: 0;
   padding: 10px 0 0 0;
@@ -31,6 +41,11 @@ const StyledDivContainer = styled.ul`
 const StyledLi = styled.li`
   padding: 5px 10px;
   display: flex;
+`
+
+const VideoDescription = styled(StyledLi)`
+  display: flex;
+  flex-direction: column;
 `
 
 const StyledMoreIcon = styled(StyledLi)`
