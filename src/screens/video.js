@@ -5,12 +5,13 @@ import ThumbDownIcon from '@material-ui/icons/ThumbDown'
 import ShareIcon from '@material-ui/icons/Share'
 import GetAppIcon from '@material-ui/icons/GetApp'
 import AddToPhotosIcon from '@material-ui/icons/AddToPhotos'
-import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
+import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined'
+import SubVideos from '../components/sub-videos/index'
 
-function Video() {
-  const { channel, title, views } = JSON.parse(
-    localStorage.getItem('youtubeSession')
-  )[0]
+function Video({ history, match }) {
+  const videos = JSON.parse(localStorage.getItem('youtubeSession'))
+  let videoId = match.params.id
+  const { channel, title, views } = videos.find(({ id }) => id == videoId)
 
   const likes = '20 M'
   const dislikes = '1'
@@ -67,6 +68,7 @@ function Video() {
           <NotificationsNoneOutlinedIcon style={{ color: 'gray' }} />
         </NotificationIconContainer>
       </Channel>
+      <SubVideos history={history} />
     </DivContainer>
   )
 }
@@ -144,6 +146,7 @@ const Channel = styled.ul`
   align-items: center;
   flex-direction: row;
   border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
 `
 
 const NotificationIconContainer = styled.span`
