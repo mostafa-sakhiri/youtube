@@ -11,12 +11,15 @@ import SubVideos from '../components/sub-videos/index'
 function Video({ history, match }) {
   const videos = JSON.parse(localStorage.getItem('youtubeSession'))
   let videoId = match.params.id
-  const { channel, title, views } = videos.find(({ id }) => id == videoId)
-
-  const likes = '20 M'
-  const dislikes = '1'
-  const subscribed = 'true'
-  const subscriptions = '4,4 M'
+  const {
+    channel,
+    title,
+    views,
+    subscriptions,
+    likes,
+    dislikes,
+    subscribed
+  } = videos.find(({ id }) => id == videoId)
 
   return (
     <DivContainer className='video'>
