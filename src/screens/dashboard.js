@@ -6,9 +6,9 @@ import Videos from '../components/videos/index'
 function Dashboard() {
   return (
     <div className='dashboard'>
-      <BottomToolbar />
-      <Videos />
       <TopToolbar />
+      <Videos />
+      <BottomToolbar />
     </div>
   )
 }
