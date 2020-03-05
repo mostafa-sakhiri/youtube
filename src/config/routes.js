@@ -15,7 +15,7 @@ const Routes = () => {
       <Switch>
         <Route exact path='/' component={Dashboard}></Route>
         <Route path='/dashboard' component={Dashboard}></Route>
-        <Route path='/video' component={Video}></Route>
+        <Route path='/video/:id' component={Video}></Route>
         <Redirect to='/' />
       </Switch>
     </Router>
