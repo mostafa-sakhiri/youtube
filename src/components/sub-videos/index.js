@@ -30,6 +30,7 @@ const StyledDivContainer = styled.div`
   color: white;
   display: flex;
   flex-direction: column;
+  padding-bottom: 10px;
 `
 
 export default SubVideos
