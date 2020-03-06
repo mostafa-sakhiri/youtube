@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import ThumbUpIcon from '@material-ui/icons/ThumbUp'
 import ThumbDownIcon from '@material-ui/icons/ThumbDown'
@@ -11,6 +11,7 @@ import SubVideos from '../components/sub-videos/index'
 function Video({ history, match }) {
   const videos = JSON.parse(localStorage.getItem('youtubeSession'))
   let videoId = match.params.id
+  let currentVideo = videos.find(({ id }) => id == videoId)
   const {
     channel,
     title,
@@ -19,7 +20,15 @@ function Video({ history, match }) {
     likes,
     dislikes,
     subscribed
-  } = videos.find(({ id }) => id == videoId)
+  } = currentVideo
+
+  const [liked, mutateLiked] = useState(currentVideo.liked)
+
+  const toggleLike = () => {
+    mutateLiked(!liked)
+    currentVideo.liked = !liked
+    localStorage.setItem('youtubeSession', JSON.stringify(videos))
+  }
 
   return (
     <DivContainer className='video'>
@@ -30,12 +39,12 @@ function Video({ history, match }) {
       </VideoDescription>
 
       <QuickActions type='none'>
-        <StyledQALi>
-          <ThumbUpIcon />
+        <StyledQALi onClick={toggleLike}>
+          <ThumbUpIcon style={{ color: liked ? '#2196F3' : 'gray' }} />
           <StyledQaSpan>{likes}</StyledQaSpan>
         </StyledQALi>
-        <StyledQALi>
-          <ThumbDownIcon />
+        <StyledQALi onClick={toggleLike}>
+          <ThumbDownIcon style={{ color: liked ? 'gray' : '#2196F3' }} />
           <StyledQaSpan>{dislikes}</StyledQaSpan>
         </StyledQALi>
         <StyledQALi>
