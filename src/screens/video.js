@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ThumbUpIcon from '@material-ui/icons/ThumbUp'
 import ThumbDownIcon from '@material-ui/icons/ThumbDown'
@@ -19,8 +19,10 @@ function Video({ history, match }) {
     subscriptions,
     likes,
     dislikes,
-    subscribed
+    subscribed,
+    uid
   } = currentVideo
+  let url = `https://www.youtube.com/embed/${uid}`
 
   const [liked, mutateLiked] = useState(currentVideo.liked)
 
@@ -32,7 +34,12 @@ function Video({ history, match }) {
 
   return (
     <DivContainer className='video'>
-      <VideoCover />
+      <VideoCover
+        width='560'
+        height='315'
+        src={url}
+        allow='accelerometer;autoplay; encrypted-media; gyroscope; picture-in-picture'
+      />
       <VideoDescription>
         <StyledTitle>{title}</StyledTitle>
         <ViewsStatus>{views} de vues</ViewsStatus>
@@ -109,7 +116,7 @@ const DivContainer = styled.div`
   font-size: 12px;
 `
 
-const VideoCover = styled.div`
+const VideoCover = styled.iframe`
   position: fixed;
   top: 0;
   width: 100%;
