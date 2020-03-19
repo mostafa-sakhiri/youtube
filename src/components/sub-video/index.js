@@ -3,10 +3,12 @@ import styled from 'styled-components'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import PropTypes from 'prop-types'
 
-function SubVideo({ channel, title, views, onGoToVideo }) {
+function SubVideo({ uid, channel, title, views, onGoToVideo }) {
+  let src = `https://img.youtube.com/vi/${uid}/0.jpg`
+
   return (
     <StyledDivContainer type='none'>
-      <VideoCover onClick={onGoToVideo} />
+      <VideoCover onClick={onGoToVideo} src={src} />
       <VideoContent type='none'>
         <VideoDescription>
           <StyledTitle>{title}</StyledTitle>
@@ -71,8 +73,8 @@ const VideoContent = styled.ul`
   margin: 0;
 `
 
-const VideoCover = styled.div`
-  width: 100%;
+const VideoCover = styled.img`
+  max-width: 100%;
   height: 100px;
   background-color: lightgray;
 `

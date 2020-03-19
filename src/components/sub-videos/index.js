@@ -11,9 +11,10 @@ function SubVideos({ history }) {
 
   return (
     <StyledDivContainer>
-      {videos.map(({ id, channel, title, views, date }, i) => (
+      {videos.map(({ id, uid, channel, title, views, date }, i) => (
         <SubVideo
           key={i}
+          uid={uid}
           channel={channel}
           title={title}
           views={views}
